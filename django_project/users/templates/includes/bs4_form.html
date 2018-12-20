@@ -29,8 +29,10 @@
       {% else %}
         {% render_field field class="form-control" %}
       {% endif %}
-    {% else %}
+    {% elif field|field_type != 'imagefield' %}
       {% render_field field class="form-control" %}
+    {% else %}
+      {% render_field field class="form-control-file" %}
     {% endif %}
 
     {% if field.help_text %}
